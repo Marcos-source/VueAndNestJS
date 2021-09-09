@@ -34,11 +34,6 @@ export default {
         isActive: true
       }
       axios.post(`${VUE_APP_BACKEND_URL}/users/create`, user)
-      .then(a=>{
-        console.log("asñkdas");
-        console.log(a);
-      })
-      // console.log(response);
     }
   }
 }
