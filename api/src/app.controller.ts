@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpException } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller('commands')
@@ -14,7 +14,7 @@ export class AppController {
   createCommand(@Body() command): Promise<any> {
     try {
       const response = this.appService.createCommand(command);
-      return response
+      return response;
     } catch (error) {
       throw new HttpException(error, 400);
     }
