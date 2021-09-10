@@ -1,27 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { getRepository } from 'typeorm';
-import { User } from './entity/User';
+import { Command } from './entity/Command';
 
 @Injectable()
 export class AppService {
-  async getUsers(): Promise<any> {
-    const users = await getRepository(User).find();
+  async getCommands(): Promise<any> {
+    const users = await getRepository(Command).find();
     return users;
   }
 
-  async createUser(data): Promise<any> {
+  async createCommand(data): Promise<any> {
     try {
-      const newUser = getRepository(User).create(data);
-      const response = await getRepository(User).save(newUser);
+      const newCommand = getRepository(Command).create(data);
+      const response = await getRepository(Command).save(newCommand);
       return response;
     } catch (error) {
       throw new Error(error);
     }
   }
-
-  async sayHello(data): Promise<any> {}
-
-  async readChanel(data): Promise<any> {}
-
-  async sendScheduleMessage(data): Promise<any> {}
 }

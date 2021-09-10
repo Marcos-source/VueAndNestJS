@@ -5,7 +5,7 @@ import 'vue-material/dist/theme/default.css'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import NotFound from './components/NotFound.vue'
-import Users from './components/Users.vue'
+import Users from './components/Commands.vue'
 import Create from './components/Create.vue'
 
 Vue.use(VueResource)

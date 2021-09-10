@@ -3,10 +3,10 @@
     <form>
       <div >
         <div class="row">
-          <input placeholder="Nombre" id="first_name" type="text" v-model="message">
+          <input placeholder="Nombre" id="name" type="text" v-model="name">
         </div>
         <div class="row">
-          <input placeholder="Apellido" id="last_name" type="text">
+          <input placeholder="Apellido" id="description" type="text" v-model="description">
         </div>
 
       </div>
@@ -23,17 +23,19 @@ export default {
   name: 'Create',
   data(){
     return{
-      message:''
+      name:'',
+      description:''
     }
   },
   methods:{
-    post() {
-      const user = {
-        firstName: this.message,
-        lastName: this.message,
+    async post() {
+      const newCommand = {
+        name: this.name,
+        description: this.description,
         isActive: true
       }
-      axios.post(`${VUE_APP_BACKEND_URL}/users/create`, user)
+      const response = await axios.post(`${VUE_APP_BACKEND_URL}/commands/create`, newCommand)
+      console.log(response);
     }
   }
 }

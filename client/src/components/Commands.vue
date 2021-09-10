@@ -2,10 +2,10 @@
   <div class='root'>
       <md-card class='card' v-for="(data) in data" :key="data.id">
       <md-card-header>
-        <div class="md-title">{{data.id}} - {{data.firstName}}</div>
+        <div class="md-title">{{data.id}} - {{data.name}}</div>
       </md-card-header>
       <md-card-content>
-        {{data.lastName}}
+        {{data.description}}
       </md-card-content>
     </md-card>
   </div>
@@ -16,12 +16,12 @@ import axios from "axios";
 const { VUE_APP_BACKEND_URL } = process.env
 
 export default {
-  name: 'Users',
+  name: 'Commands',
   props: {
     data: Array
   },
   async created() {
-    const { data } = await axios.get(`${VUE_APP_BACKEND_URL}/users`)
+    const { data } = await axios.get(`${VUE_APP_BACKEND_URL}/commands`)
     this.data = data
   }
 }
